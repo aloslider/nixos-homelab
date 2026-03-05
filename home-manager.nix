@@ -16,7 +16,8 @@ in
     useGlobalPkgs = true;
     users.benq = { pkgs, ... }: {
       home.packages = with pkgs; [
-       
+        lazygit       
+	tmux
       ];
       home.stateVersion = "25.05";
     };
