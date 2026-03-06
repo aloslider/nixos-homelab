@@ -2,6 +2,7 @@
 {
   imports = [
     ./home-manager.nix
+		./modules/system
     ./hardware-configuration.nix
   ];
 
@@ -13,9 +14,6 @@
     };
     efi.canTouchEfiVariables = true;
   };
-
-  networking.hostName = "benq-serv";
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Moscow";
 
@@ -39,12 +37,8 @@
   environment.systemPackages = with pkgs; [
     git
     vim
+		tmux
   ];
-
-  services.openssh.enable = true;
-
-  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
-  networking.firewall.allowedUDPPorts = [];
 
   system.stateVersion = "25.05";
 }
